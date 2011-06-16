@@ -18,6 +18,11 @@ function draw(e)
     }
     x -= this.offsetLeft;
     y -= this.offsetTop;
+    if((x>600)||(y>600) ||(x<0) || (y<0))
+        {
+            $('#testCanvas').mouseup();
+            return;
+        }
     ctx = $('#testCanvas').get(0).getContext("2d");
 //    ctx.fillRect (x, y, 1, 1);
     ctx.lineTo(x,y);
@@ -84,6 +89,7 @@ function initialize()
     
     $("#testCanvas").mousedown(startDraw);
     $("#testCanvas").mouseup(endDraw);
+    $("#testCanvas").mouseout(endDraw);
 
 }
 

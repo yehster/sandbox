@@ -20,14 +20,13 @@
     }
     function errorHandler(event,jqXHR,ajaxSettings,thrownError)
     {
-        window.alert(event);
-        window.alert(jqXHR.responseText);
-        window.alert(ajaxSettings);
+
         window.alert(thrownError);
     }
     function initialize()
     {
-        $("button").click(butClick).ajaxError(errorHandler);;//
+        $("button").click(butClick);
+        $("html").ajaxError(errorHandler);//
     }
     window.onload=initialize;
     

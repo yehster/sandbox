@@ -3,6 +3,8 @@ if (isset($_REQUEST["error"]))
 {
     if($_REQUEST["error"]==="Error")
     {
+        $return['error'] = true;
+        $return['msg']= error;
         throw new Exception("Throwing Error!");
     }
     

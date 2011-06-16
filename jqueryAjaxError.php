@@ -5,22 +5,29 @@
     {
         text=$(this).text();
 
+        $("#results").html("clicked");
         $.post("/sandbox/jqueryAjaxErrorPost.php",
         {
             error: ""+text+""
         },
         function(data)
         {
-            window.alert(data);
             $("#results").html(data);
-        }
+        },
+        "html"
         )
     
-    
+    }
+    function errorHandler(event,jqXHR,ajaxSettings,thrownError)
+    {
+        window.alert(event);
+        window.alert(jqXHR.responseText);
+        window.alert(ajaxSettings);
+        window.alert(thrownError);
     }
     function initialize()
     {
-        $("button").click(butClick);
+        $("button").click(butClick).ajaxError(errorHandler);;//
     }
     window.onload=initialize;
     

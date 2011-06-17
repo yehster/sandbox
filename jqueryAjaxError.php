@@ -20,8 +20,8 @@
     }
     function errorHandler(event,jqXHR,ajaxSettings,thrownError)
     {
-
-        window.alert(thrownError);
+        msg="thrownError:"+thrownError+" "+"info:"+jqXHR.statusText + " "+jqXHR.responseText + ajaxSettings.url;
+        $("#results").html(msg);
     }
     function initialize()
     {
@@ -35,6 +35,7 @@
 <html>
     <body>
         <button>Error</button>
+        <button>Error Trapped</button>
         <button>No Error</button>
         <div id="results">Results</div>
     </body>
